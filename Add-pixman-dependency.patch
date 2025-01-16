@@ -1,17 +1,7 @@
-From 021587045f8fcb0d58b4eced6940b9dd42ade8f3 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Franti=C5=A1ek=20Zatloukal?= <fzatlouk@redhat.com>
-Date: Sun, 11 Aug 2024 18:19:50 -0400
-Subject: [PATCH] Add pixman dependency
-
----
- src/meson.build | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/src/meson.build b/src/meson.build
-index 2654d80..c328628 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -23,6 +23,7 @@ glm_dep = dependency('glm')
+diff -Naur gamescope-3.16.1.old/src/meson.build gamescope-3.16.1/src/meson.build
+--- gamescope-3.16.1.old/src/meson.build	2025-01-16 11:12:40.848949807 +0100
++++ gamescope-3.16.1/src/meson.build	2025-01-16 11:13:38.404680071 +0100
+@@ -23,6 +23,7 @@
  sdl2_dep = dependency('SDL2', required: get_option('sdl2_backend'))
  stb_dep = dependency('stb')
  avif_dep = dependency('libavif', version: '>=1.0.0', required: get_option('avif_screenshots'))
@@ -19,15 +9,12 @@ index 2654d80..c328628 100644
  
  wlroots_dep = dependency(
    'wlroots-0.18',
-@@ -176,7 +177,7 @@ gamescope_version = vcs_tag(
+@@ -194,7 +195,7 @@
        xkbcommon, thread_dep, sdl2_dep, wlroots_dep,
        vulkan_dep, liftoff_dep, dep_xtst, dep_xmu, cap_dep, epoll_dep, pipewire_dep, librt_dep,
        stb_dep, displayinfo_dep, openvr_dep, dep_xcursor, avif_dep, dep_xi,
--      libdecor_dep, eis_dep,
-+      libdecor_dep, eis_dep, pixman_dep,
+-      libdecor_dep, eis_dep, luajit_dep
++      libdecor_dep, eis_dep, luajit_dep, pixman_dep
      ],
      install: true,
      cpp_args: gamescope_cpp_args,
--- 
-2.45.2
-
