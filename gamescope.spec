@@ -50,7 +50,7 @@ BuildRequires:  (pkgconfig(libliftoff) >= %{libliftoff_minver} with pkgconfig(li
 BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(luajit)
-#BuildRequires:  pkgconfig(openvr) >= 2.12
+BuildRequires:  pkgconfig(openvr) >= 2.12
 BuildRequires:  pkgconfig(sdl2)
 BuildRequires:  pkgconfig(vulkan)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.17
@@ -115,7 +115,7 @@ export PKG_CONFIG_PATH=pkgconfig
     -Ddrm_backend=enabled \
     -Denable_gamescope=true \
     -Denable_gamescope_wsi_layer=true \
-    -Denable_openvr_support=false \
+    -Denable_openvr_support=true \
     -Dforce_fallback_for=[] \
     -Dinput_emulation=enabled \
     -Dpipewire=enabled \
