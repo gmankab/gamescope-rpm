@@ -130,6 +130,7 @@ export PKG_CONFIG_PATH=pkgconfig
 %license LICENSE
 %doc README.md
 %{_bindir}/gamescope
+%caps(CAP_SYS_NICE=pe) %{_bindir}/gamescope
 %{_bindir}/gamescopectl
 %{_bindir}/gamescopereaper
 %{_bindir}/gamescopestream
