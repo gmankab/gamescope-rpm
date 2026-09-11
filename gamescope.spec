@@ -1,3 +1,4 @@
+%global gamescope_commit 45bf97f20a14506d26cb54b5c375b7aae531141f
 %global libliftoff_minver 0.5.0
 %global reshade_commit 696b14cd6006ae9ca174e6164450619ace043283
 %global reshade_shortcommit %(c=%{reshade_commit}; echo ${c:0:7})
@@ -6,7 +7,7 @@
 
 Name:           gamescope
 Version:        3.16.29
-Release:        %autorelease
+Release:        3
 Summary:        Micro-compositor for video games on Wayland
 # Automatically converted from old format: BSD - review is highly recommended.
 License:        LicenseRef-Callaway-BSD
@@ -15,7 +16,7 @@ URL:            https://github.com/ValveSoftware/gamescope
 # https://bugzilla.redhat.com/show_bug.cgi?id=2339416
 ExcludeArch:    ppc64le
 
-Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/gmankab/gamescope/archive/%{gamescope_commit}.tar.gz
 # Create stb.pc to satisfy dependency('stb')
 Source1:        stb.pc
 Source2:        https://github.com/misyltoad/reshade/archive/%{reshade_commit}/reshade-%{reshade_shortcommit}.tar.gz
@@ -94,7 +95,7 @@ Recommends:     mesa-vulkan-drivers
 %{name} is the micro-compositor optimized for running video games on Wayland.
 
 %prep
-%autosetup -p1 -N
+%autosetup -n %{name}-%{gamescope_commit} -p1 -N
 # Install stub pkgconfig file
 mkdir -p pkgconfig
 cp %{SOURCE1} pkgconfig/stb.pc
